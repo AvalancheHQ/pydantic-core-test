@@ -32,6 +32,7 @@ jobs:
             ${{ hashFiles('pyproject.toml') }}
 
       - run: pip install -r tests/requirements.txt
+      - run: pip uninstall pytest-speed -y
 
       - run: pip install pytest-codspeed~=2.1.0
 
