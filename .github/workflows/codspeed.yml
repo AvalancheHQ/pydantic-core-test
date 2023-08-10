@@ -26,16 +26,14 @@ jobs:
         with:
           path: ${{ env.pythonLocation }}
           key: >
-            py-v45
+            py-v458
             ${{ env.pythonLocation }}
             ${{ hashFiles('tests/requirements.txt') }}
             ${{ hashFiles('pyproject.toml') }}
 
       - run: pip install -r tests/requirements.txt
-        if: steps.cache-py.outputs.cache-hit != 'true'
 
       - run: pip install pytest-codspeed~=2.1.0
-        if: steps.cache-py.outputs.cache-hit != 'true'
 
       - name: install rust stable
         id: rust-toolchain
